@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title 
+    - let parks=[{parkname:"smiling park",parklocation:"safilguda",parkarea:"1463"},{parkname:"welcome park",parklocation:"metuguda",parkarea:"132"},{parkname:"Mysore Park",parklocation:"Mysore",parkarea:"423"}]
+    div(class="container-fluid mt-3")
+    div(class="row")
+        each park,index in parks 
+            div(class="col-sm-2 bg-info m-1 p-3" onclick=`buy(${index})`) #{park.parkname} - #{park.parklocation} - #{park.parkarea}
+    script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }
+      
