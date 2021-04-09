@@ -1,9 +1,8 @@
 var express = require('express');
+const park_controlers= require('../controllers/park');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('park', { title: 'Search Results'});
-});
+router.get('/', park_controlers.park_view_all_Page );
 
 module.exports = router;
