@@ -1,20 +1,23 @@
 extends layout
 
 block content
-  h1= title
+  h1(id="myTitle")= title
 
-  - let parkid = toShow._id
-  - let parklocation = toShow.parklocation
-  - let parkarea = toShow.parkarea
-  div
-    div.row
-      div(class='parkAttr mr-3') park ID is:
-      div #{parkid}
-    div.row
-      div(class='parkAttr mr-3') parklocation is:
-      div #{parklocation}
-    div.row
-      div(class='parkAttr mr-3') parkarea is:
-      div #{parkarea}
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let parkid = toShow._id
+    - let parklocation = toShow.parklocation
+    - let parkarea = toShow.parkarea
+    div
+      div.row
+        div(class='parkAttr mr-3') park ID is:
+        div(class="akaVal") #{parkid}
+      div.row
+        div(class='parkAttr mr-3') parklocation is:
+        div(class="akaVal") #{parklocation}
+      div.row
+        div(class='parkAttr mr-3') parkarea is:
+        div(class="akaVal") #{parkarea}
 
 

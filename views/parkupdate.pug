@@ -1,37 +1,40 @@
 block content
     h1= title
 
-    - let parkid = toShow._id
-    - let parklocation = toShow.parklocation
-    - let parkarea = toShow.parkarea
+    if (toShow == null)
+        h2 No instance to delete
+    else
+        - let parkid = toShow._id
+        - let parklocation = toShow.parklocation
+        - let parkarea = toShow.parkarea
 
-    div.row(class='mb-2')
-        div.mr-1 ID is
-        div #{parkid}
-    - let actionid = "/resource/resource/parks/" + parkid
-    form(id='parkForm', action= actionid, method="PUT")
-        div.form-group
-            label.parkAttr(for='parkarea') park Area
-            input#size(type='number' name='parkarea', value= parkarea )
-        div.form-group
-            label.parkAttr(for='parklocation') park Location
-            input#cost(type='text' name='parklocation', value= parklocation )
-        input(type="submit")
+        div.row(class='mb-2')
+            div.mr-1 ID is
+            div #{parkid}
+        - let actionid = "/resource/resource/parks/" + parkid
+        form(id='parkForm', action= actionid, method="PUT")
+            div.form-group
+                label.parkAttr(for='parkarea') park Area
+                input#size(type='number' name='parkarea', value= parkarea )
+            div.form-group
+                label.parkAttr(for='parklocation') park Location
+                input#cost(type='text' name='parklocation', value= parklocation )
+            input(type="submit")
 
-    script.
-        document.forms['parkForm'].addEventListener('submit', (event) => {
-            event.preventDefault();
-            // TODO do something here to show user that form is being submitted
-            fetch(event.target.action, {
-                method: 'PUT',
-                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-            }).then((resp) => {
-                return resp.json(); // or resp.text() or whatever the server sends
-            }).then((body) => {
-                alert("Update succeded")
-                // TODO handle body
-            }).catch((error) => {
-                // TODO handle error
-                alert("Update failed " + error )
+        script.
+            document.forms['parkForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                    method: 'PUT',
+                    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                    alert("Update succeded")
+                    // TODO handle body
+                }).catch((error) => {
+                    // TODO handle error
+                    alert("Update failed " + error )
+                });
             });
-        });

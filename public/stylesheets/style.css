@@ -10,5 +10,38 @@ a {
   background-color: aquamarine;
   width: 120px;
 }
+.parkAttr {
+  background-color: rgb(177, 174, 174);
+  width: 250px;
+  margin: 6px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bolder;
+
+}
+#myTitle{
+  color: #541256;
+  font-weight: 720;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: underline;
+}
+
+.akaVal{
+  margin-right: 4px;
+  margin-bottom: 0;
+  padding: 8px;
+  justify-content:center;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(255, 238, 0);
+  border-left: 2px solid rgb(0, 153, 255);
+  background-color: rgb(224, 211, 173);
+}
+
+.akaVal:hover{
+  background-color: rgb(4, 255, 255);
+  color: black;
+}
 
 

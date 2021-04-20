@@ -5,13 +5,12 @@ block content
     //- let parks=[{parkname:"smiling park",parklocation:"safilguda",parkarea:"1463"},{parkname:"welcome park",parklocation:"metuguda",parkarea:"132"},{parkname:"Mysore Park",parklocation:"Mysore",parkarea:"423"}]
     - let parks = results
     div(class="container-fluid mt-3")
-    div(class="row")
+    div(class="row m-1") 
       each park,index in parks 
+       -let destination = `dispatch(\"/parks/update?id=${park._id}\")`
         div(class="col-sm-2 bg-info m-1 p-3" onclick=`buy(${index})`) #{park.parkname}  #{park.parklocation}  #{park.parkarea}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
     script.
-     
-      function buy(itemNo)
-      {
-        alert(`You purchased Item ${itemNo+1}`)
+      function dispatch(path){
+        window.location.href=path
       }
-      
